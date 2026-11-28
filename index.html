@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffee Insight Premium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Kanit:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><img src="https://cdn-icons-png.flaticon.com/512/924/924514.png" alt="Coffee Insight Premium"></div>
+    <label for="productFilter">Pilih Produk</label>
+    <select id="productFilter"></select>
+    <div class="divider"></div>
+    <nav id="nav"></nav>
+    <div class="divider"></div>
+    <h3 class="export-title">Export Data</h3>
+    <button id="downloadBtn" class="download">Download Filtered Data (.CSV)</button>
+  </aside>
+
+  <main class="main">
+    <section class="header-card">
+      <h1 id="pageTitle">Dashboard Overview</h1>
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/924/924514.png" alt="">
+          <div><div class="kpi-label">Pendapatan</div><div class="kpi-value" id="kpiRevenue">-</div></div>
+        </div>
+        <div class="kpi-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/3127/3127450.png" alt="">
+          <div><div class="kpi-label">Cups Terjual</div><div class="kpi-value" id="kpiCups">-</div></div>
+        </div>
+        <div class="kpi-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/2489/2489756.png" alt="">
+          <div><div class="kpi-label">Rata-rata</div><div class="kpi-value" id="kpiAverage">-</div></div>
+        </div>
+        <div class="kpi-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/3361/3361413.png" alt="">
+          <div><div class="kpi-label">Payment</div><div class="kpi-value" id="kpiPayment">-</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="view" id="view-overview">
+      <div class="panel">
+        <h2>Pertumbuhan Pendapatan Bulanan</h2>
+        <div id="chartMonthlyOverview" class="chart chart-short"></div>
+      </div>
+      <div class="two-col">
+        <div class="panel">
+          <h2>Analisis Preferensi Produk Berdasarkan Segmen Waktu</h2>
+          <div id="chartTimeCoffee" class="chart"></div>
+        </div>
+        <div class="panel">
+          <h2>Variansi Pendapatan Harian dan Performa Mingguan</h2>
+          <div id="chartWeekday" class="chart"></div>
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="panel">
+          <h2>Produk dengan Performa Penjualan Tertinggi</h2>
+          <div id="chartProductsOverview" class="chart chart-short"></div>
+        </div>
+        <div class="panel">
+          <h2>Distribusi Arus Kunjungan</h2>
+          <div id="chartHours" class="chart chart-short"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="view" id="view-tren" hidden>
+      <div class="panel">
+        <h2>Pertumbuhan Pendapatan Bulanan dan Analisis Trend Penjualan</h2>
+        <div id="chartMonthlyTrend" class="chart chart-tall"></div>
+      </div>
+    </section>
+
+    <section class="view" id="view-produk" hidden>
+      <div class="panel">
+        <h2>Produk dengan Performa Penjualan Tertinggi</h2>
+        <div id="chartProductsTop" class="chart chart-tall"></div>
+      </div>
+    </section>
+
+    <details class="details">
+      <summary>View Data Details</summary>
+      <div class="table-wrap"><table id="dataTable"></table></div>
+    </details>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
